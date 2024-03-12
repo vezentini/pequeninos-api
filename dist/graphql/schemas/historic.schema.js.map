@@ -1,0 +1,1 @@
+{"version":3,"file":"historic.schema.js","sourceRoot":"","sources":["../../../src/graphql/schemas/historic.schema.ts"],"names":[],"mappings":";;;AAAA,qCAAqC;AACxB,QAAA,cAAc,GAAG,IAAI,QAAQ,CAAC,MAAM,CAAC;IAChD,EAAE,EAAE,MAAM;IACV,UAAU,EAAE,MAAM;IAClB,WAAW,EAAE,CAAC,MAAM,CAAC;CACtB,CAAC,CAAC"}
