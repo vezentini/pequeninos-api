@@ -1,13 +1,14 @@
 {
-  "name": "vamosver1",
+  "name": "pequeninos-api",
   "version": "0.0.1",
   "description": "",
   "author": "",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "build": "nest build",
+    "build": "nest build && pnpm copygraphql",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "copygraphql": "copyfiles -u 1 './src/graphql/typedefs/**/*.graphql' './dist/'",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
@@ -57,7 +58,8 @@
     "ts-loader": "^9.4.3",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.2",
+    "copyfiles": "^2.4.1"
   },
   "jest": {
     "moduleFileExtensions": [
