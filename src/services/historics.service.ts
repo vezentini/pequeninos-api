@@ -7,7 +7,9 @@ import { IHistoric } from 'src/entities/interfaces';
 
 @Injectable()
 export class HistoricsService {
-  constructor(@InjectModel('Historic') private readonly accountModel: Model<IHistoric>) { }
+  constructor(
+    @InjectModel('Historic') private readonly accountModel: Model<IHistoric>,
+  ) {}
 
   async upsert(upsertHistoricDto: HistoricInput): Promise<IHistoric> {
     const upsertObject = { ...upsertHistoricDto };
@@ -16,7 +18,11 @@ export class HistoricsService {
     }
 
     const createdHistoric = new this.accountModel(upsertObject);
-    await this.accountModel.findOneAndUpdate({ id: upsertObject.id }, { ...upsertObject }, { upsert: true });
+    await this.accountModel.findOneAndUpdate(
+      { id: upsertObject.id },
+      { ...upsertObject },
+      { upsert: true },
+    );
     return createdHistoric;
   }
 

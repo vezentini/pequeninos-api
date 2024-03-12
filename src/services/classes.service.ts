@@ -7,7 +7,9 @@ import { IClass } from 'src/entities/interfaces';
 
 @Injectable()
 export class ClassesService {
-  constructor(@InjectModel('Class') private readonly classModel: Model<IClass>) { }
+  constructor(
+    @InjectModel('Class') private readonly classModel: Model<IClass>,
+  ) {}
 
   async upsert(upsertClassDto: ClassInput): Promise<IClass> {
     const upsertObject = { ...upsertClassDto };
@@ -17,7 +19,11 @@ export class ClassesService {
     }
 
     const upsertClass = new this.classModel(upsertObject);
-    await this.classModel.findOneAndUpdate({ id: upsertObject.id }, { ...upsertObject }, { upsert: true });
+    await this.classModel.findOneAndUpdate(
+      { id: upsertObject.id },
+      { ...upsertObject },
+      { upsert: true },
+    );
     return upsertClass;
   }
 

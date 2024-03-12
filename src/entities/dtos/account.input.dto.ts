@@ -1,12 +1,12 @@
-import { ObjectType, Field, ID, registerEnumType } from '@nestjs/graphql';
+import { InputType, Field, ID, registerEnumType } from '@nestjs/graphql';
 import { ProfileTypes } from '../enums';
 
 registerEnumType(ProfileTypes, {
   name: 'ProfileTypes',
 });
 
-@ObjectType()
-export class AccountType {
+@InputType()
+export class AccountInputDto {
   @Field(() => ID)
   id: string;
   @Field()

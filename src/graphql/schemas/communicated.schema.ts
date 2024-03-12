@@ -5,6 +5,9 @@ export const CommunicatedSchema = new mongoose.Schema({
   id: String,
   title: String,
   description: String,
-  type: { type: String, enum: [CommunicatedTypes.ALL, CommunicatedTypes.CLASS] },
+  type: {
+    type: String,
+    enum: [CommunicatedTypes.ALL, CommunicatedTypes.CLASS],
+  },
   photoId: String,
 });

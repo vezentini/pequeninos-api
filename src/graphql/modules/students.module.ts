@@ -5,7 +5,9 @@ import { StudentsService } from 'src/services';
 import { StudentSchema } from '../schemas';
 
 @Module({
-  imports: [MongooseModule.forFeature([{ name: 'Student', schema: StudentSchema }])],
+  imports: [
+    MongooseModule.forFeature([{ name: 'Student', schema: StudentSchema }]),
+  ],
   providers: [StudentsResolver, StudentsService],
 })
-export class StudentsModule { }
+export class StudentsModule {}

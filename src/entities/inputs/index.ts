@@ -12,4 +12,4 @@ export * from './photo.filter.input';
 export * from './photo.input';
 export * from './communicated.filter.input';
 export * from './communicated.input';
-export * from './account.login.input'
+export * from './account.login.input';

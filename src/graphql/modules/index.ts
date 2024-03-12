@@ -5,4 +5,11 @@ import { HistoricsModule } from './historics.module';
 import { StudentsModule } from './students.module';
 import { SummariesModule } from './summaries.module';
 
-export default [AccountsModule, StudentsModule, ClassesModule, HistoricsModule, SummariesModule, CommunicatedsModule];
+export default [
+  AccountsModule,
+  StudentsModule,
+  ClassesModule,
+  HistoricsModule,
+  SummariesModule,
+  CommunicatedsModule,
+];

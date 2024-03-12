@@ -1,4 +1,4 @@
-import { Field, ID, InputType } from 'type-graphql';
+import { Field, ID, InputType } from '@nestjs/graphql';
 import { CommunicatedTypes } from '../enums';
 
 @InputType()
