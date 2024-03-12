@@ -3,6 +3,8 @@ import { GraphQLModule } from '@nestjs/graphql';
 import modules from './graphql/modules';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+
+const mongoUri = 'mongodb+srv://pequeninos-app:q8qDSmnSRxKkRWhl@cluster0.hhhy8qo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 @Module({
   imports: [
     ...modules,
@@ -11,7 +13,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
       autoSchemaFile: 'schema.gql',
       playground: true,
     }),
-    MongooseModule.forRoot('mongodb://localhost:27017/pequeninos'),
+    MongooseModule.forRoot(mongoUri),
   ],
 })
 export class AppModule { }
