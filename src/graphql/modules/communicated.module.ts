@@ -5,7 +5,11 @@ import { CommunicatedSchema } from '../schemas';
 import { CommunicatedsService } from 'src/services';
 
 @Module({
-  imports: [MongooseModule.forFeature([{ name: 'Communicated', schema: CommunicatedSchema }])],
+  imports: [
+    MongooseModule.forFeature([
+      { name: 'Communicated', schema: CommunicatedSchema },
+    ]),
+  ],
   providers: [CommunicatedsResolver, CommunicatedsService],
 })
-export class CommunicatedsModule { }
+export class CommunicatedsModule {}

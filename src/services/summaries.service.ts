@@ -7,7 +7,9 @@ import { ISummary } from 'src/entities/interfaces';
 
 @Injectable()
 export class SummariesService {
-  constructor(@InjectModel('Summary') private readonly studentModel: Model<ISummary>) { }
+  constructor(
+    @InjectModel('Summary') private readonly studentModel: Model<ISummary>,
+  ) {}
 
   async upsert(upsertSummaryDto: SummaryInput): Promise<ISummary> {
     const upsertObject = { ...upsertSummaryDto };
@@ -17,7 +19,11 @@ export class SummariesService {
     }
 
     const upsertSummary = new this.studentModel(upsertObject);
-    await this.studentModel.findOneAndUpdate({ id: upsertObject.id }, { ...upsertObject }, { upsert: true });
+    await this.studentModel.findOneAndUpdate(
+      { id: upsertObject.id },
+      { ...upsertObject },
+      { upsert: true },
+    );
     return upsertSummary;
   }
 

@@ -1,4 +1,4 @@
-import { ObjectType, Field, ID, registerEnumType } from 'type-graphql';
+import { ObjectType, Field, ID, registerEnumType } from '@nestjs/graphql';
 import { PhotoTypes } from '../enums';
 
 registerEnumType(PhotoTypes, {

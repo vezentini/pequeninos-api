@@ -5,7 +5,9 @@ import { SummariesService } from 'src/services';
 import { SummarySchema } from '../schemas';
 
 @Module({
-  imports: [MongooseModule.forFeature([{ name: 'Summary', schema: SummarySchema }])],
+  imports: [
+    MongooseModule.forFeature([{ name: 'Summary', schema: SummarySchema }]),
+  ],
   providers: [SummariesResolver, SummariesService],
 })
-export class SummariesModule { }
+export class SummariesModule {}

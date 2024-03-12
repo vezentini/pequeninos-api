@@ -7,24 +7,37 @@ import { ICommunicated } from 'src/entities/interfaces';
 
 @Injectable()
 export class CommunicatedsService {
-  constructor(@InjectModel('Communicated') private readonly communicatedModel: Model<ICommunicated>) { }
+  constructor(
+    @InjectModel('Communicated')
+    private readonly communicatedModel: Model<ICommunicated>,
+  ) {}
 
-  async upsert(upsertCommunicatedDto: CommunicatedInput): Promise<ICommunicated> {
+  async upsert(
+    upsertCommunicatedDto: CommunicatedInput,
+  ): Promise<ICommunicated> {
     const upsertObject = { ...upsertCommunicatedDto };
     if (upsertCommunicatedDto.id === '') {
       upsertObject.id = uuid();
     }
 
     const createdCommunicated = new this.communicatedModel(upsertObject);
-    await this.communicatedModel.findOneAndUpdate({ id: upsertObject.id }, { ...upsertObject }, { upsert: true });
+    await this.communicatedModel.findOneAndUpdate(
+      { id: upsertObject.id },
+      { ...upsertObject },
+      { upsert: true },
+    );
     return createdCommunicated;
   }
 
-  async findAll(filter: Partial<CommunicatedFilterInput>): Promise<ICommunicated[]> {
+  async findAll(
+    filter: Partial<CommunicatedFilterInput>,
+  ): Promise<ICommunicated[]> {
     return this.communicatedModel.find(filter).exec();
   }
 
-  async findOne(filter: Partial<CommunicatedFilterInput>): Promise<ICommunicated> {
+  async findOne(
+    filter: Partial<CommunicatedFilterInput>,
+  ): Promise<ICommunicated> {
     return this.communicatedModel.findOne(filter).exec();
   }
 }

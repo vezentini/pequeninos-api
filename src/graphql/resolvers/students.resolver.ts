@@ -9,12 +9,16 @@ export class StudentsResolver {
   constructor(private readonly studentsService: StudentsService) { }
 
   @Query(() => [StudentType])
-  async findStudents(@Args('input') input: StudentFilterInput): Promise<IStudent[]> {
+  async findStudents(
+    @Args('input') input: StudentFilterInput,
+  ): Promise<IStudent[]> {
     return this.studentsService.findAll(input);
   }
 
   @Query(() => StudentType)
-  async findOneStudent(@Args('input') input: StudentFilterInput): Promise<IStudent> {
+  async findOneStudent(
+    @Args('input') input: StudentFilterInput,
+  ): Promise<IStudent> {
     return this.studentsService.findOne(input);
   }
 

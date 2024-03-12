@@ -1,8 +1,8 @@
-import { InputType, Field } from '@nestjs/graphql';
+import { ArgsType, Field } from '@nestjs/graphql';
 import { ProfileTypes } from '../enums';
 
-@InputType()
-export class AccountInput {
+@ArgsType()
+export class AccountArgs {
   @Field()
   readonly id: string | null;
   @Field()

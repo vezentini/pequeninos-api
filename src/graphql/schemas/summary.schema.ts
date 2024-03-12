@@ -1,7 +1,10 @@
 import * as mongoose from 'mongoose';
 import { SnackConsumnTypes } from 'src/entities/enums';
 
-const ConsumnTypes = { type: String, enum: [SnackConsumnTypes.ALL, SnackConsumnTypes.HALF, SnackConsumnTypes.NONE] };
+const ConsumnTypes = {
+  type: String,
+  enum: [SnackConsumnTypes.ALL, SnackConsumnTypes.HALF, SnackConsumnTypes.NONE],
+};
 
 export const SummarySchema = new mongoose.Schema({
   id: String,

@@ -9,17 +9,23 @@ export class HistoricsResolver {
   constructor(private readonly historicsService: HistoricsService) { }
 
   @Query(() => [HistoricType])
-  async findHistorics(@Args('input') input: HistoricFilterInput): Promise<IHistoric[]> {
+  async findHistorics(
+    @Args('input') input: HistoricFilterInput,
+  ): Promise<IHistoric[]> {
     return this.historicsService.findAll(input);
   }
 
   @Query(() => HistoricType)
-  async findOneHistoric(@Args('input') input: HistoricFilterInput): Promise<IHistoric> {
+  async findOneHistoric(
+    @Args('input') input: HistoricFilterInput,
+  ): Promise<IHistoric> {
     return this.historicsService.findOne(input);
   }
 
   @Mutation(() => HistoricType)
-  async createHistoric(@Args('input') input: HistoricInput): Promise<IHistoric> {
+  async createHistoric(
+    @Args('input') input: HistoricInput,
+  ): Promise<IHistoric> {
     return this.historicsService.upsert(input);
   }
 }

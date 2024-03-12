@@ -7,7 +7,9 @@ import { IPhoto } from 'src/entities/interfaces';
 
 @Injectable()
 export class PhotosService {
-  constructor(@InjectModel('Photo') private readonly photoModel: Model<IPhoto>) { }
+  constructor(
+    @InjectModel('Photo') private readonly photoModel: Model<IPhoto>,
+  ) {}
 
   async upsert(upsertPhotoDto: PhotoInput): Promise<IPhoto> {
     const upsertObject = { ...upsertPhotoDto };
@@ -17,7 +19,11 @@ export class PhotosService {
     }
 
     const upsertPhoto = new this.photoModel(upsertObject);
-    await this.photoModel.findOneAndUpdate({ id: upsertObject.id }, { ...upsertObject }, { upsert: true });
+    await this.photoModel.findOneAndUpdate(
+      { id: upsertObject.id },
+      { ...upsertObject },
+      { upsert: true },
+    );
     return upsertPhoto;
   }
 
