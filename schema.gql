@@ -18,63 +18,6 @@ enum ProfileTypes {
   PARENT
 }
 
-type StudentType {
-  id: ID!
-  name: String!
-  gender: GenderTypes!
-  classId: ID!
-}
-
-enum GenderTypes {
-  MALE
-  FEMALE
-}
-
-type ClassType {
-  id: ID!
-  name: String!
-}
-
-type HistoricType {
-  id: ID!
-  studentId: ID!
-  medications: [String!]!
-}
-
-type SummaryType {
-  id: ID!
-  studentId: ID!
-  date: String!
-  mornningSnack: String!
-  mornningSnackConsumn: SnackConsumnTypes!
-  luncheon: String!
-  luncheonConsumn: SnackConsumnTypes!
-  afternoonSnack: String!
-  afternoonSnackConsumn: SnackConsumnTypes!
-  preDinner: String!
-  preDinnerConsumn: String!
-  description: String!
-}
-
-enum SnackConsumnTypes {
-  ALL
-  NONE
-  HALF
-}
-
-type CommunicatedType {
-  id: ID!
-  title: String!
-  description: String!
-  type: CommunicationTypes!
-  photoId: ID!
-}
-
-enum CommunicationTypes {
-  ALL
-  CLASS
-}
-
 type AccountLoginType {
   id: String!
   name: String!
@@ -85,16 +28,6 @@ type Query {
   loginAccount(input: AccountLoginInput!): AccountLoginType!
   findAccounts(input: AccountFilterInput!): [AccountType!]!
   findOneAccount(input: AccountFilterInput!): AccountType!
-  findStudents(input: StudentFilterInput!): [StudentType!]!
-  findOneStudent(input: StudentFilterInput!): StudentType!
-  findClasses(input: ClassFilterInput!): [ClassType!]!
-  findOneClass(input: ClassFilterInput!): [ClassType!]!
-  findHistorics(input: HistoricFilterInput!): [HistoricType!]!
-  findOneHistoric(input: HistoricFilterInput!): HistoricType!
-  findSummarys(input: SummaryFilterInput!): [SummaryType!]!
-  findOneSummary(input: SummaryFilterInput!): SummaryType!
-  findCommunicateds(input: CommunicatedFilterInput!): [CommunicatedType!]!
-  findOneCommunicated(input: CommunicatedFilterInput!): CommunicatedType!
 }
 
 input AccountLoginInput {
@@ -108,40 +41,8 @@ input AccountFilterInput {
   username: String
 }
 
-input StudentFilterInput {
-  id: ID
-  name: String
-  gender: GenderTypes
-  classId: ID
-}
-
-input ClassFilterInput {
-  id: ID
-  name: String
-}
-
-input HistoricFilterInput {
-  id: String
-  studentId: String
-}
-
-input SummaryFilterInput {
-  id: ID!
-  studentId: ID!
-  date: String!
-}
-
-input CommunicatedFilterInput {
-  id: ID
-}
-
 type Mutation {
   createAccount(accountInputDto: AccountInputDto!): AccountType!
-  upsertStudent(input: StudentInput!): StudentType!
-  upsertClass(input: ClassInput!): ClassType!
-  createHistoric(input: HistoricInput!): HistoricType!
-  upsertSummary(input: SummaryInput!): SummaryType!
-  upsertCommunicated(input: CommunicatedInput!): CommunicatedType!
 }
 
 input AccountInputDto {
@@ -153,45 +54,4 @@ input AccountInputDto {
   document: String!
   studentIds: [String!]!
   profile: ProfileTypes!
-}
-
-input StudentInput {
-  id: ID!
-  name: String!
-  gender: GenderTypes!
-  classId: ID!
-}
-
-input ClassInput {
-  id: ID!
-  name: String!
-}
-
-input HistoricInput {
-  id: String!
-  studentId: String!
-  medications: [String!]!
-}
-
-input SummaryInput {
-  id: ID!
-  studentId: ID!
-  date: String!
-  mornningSnack: String!
-  mornningSnackConsumn: SnackConsumnTypes!
-  luncheon: String!
-  luncheonConsumn: SnackConsumnTypes!
-  afternoonSnack: String!
-  afternoonSnackConsumn: SnackConsumnTypes!
-  preDinner: String!
-  preDinnerConsumn: String!
-  description: String!
-}
-
-input CommunicatedInput {
-  id: ID!
-  title: String!
-  description: String!
-  type: CommunicationTypes!
-  photoId: ID!
 }
